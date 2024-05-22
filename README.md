@@ -34,7 +34,9 @@ Instale as dependências
   npm install
 ```
 
-Crie o arquivo _.env_ conforme o arquivo _.env.sample_ e execute o comando abaixo para prover o container do banco de dados
+Crie o arquivo _.env_ conforme o arquivo _.env.sample_
+
+Execute o comando abaixo para prover o container do banco de dados
 
 ```zsh
   docker-compose up -d
