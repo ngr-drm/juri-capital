@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "5fb96228-4ee7-4e82-b961-342bafcd1752",
+		"name": "juri-challenge",
+		"description": "API para consulta de processos judiciais",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35095570"
+	},
+	"item": [
+		{
+			"name": "consultar processo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n  \"processo\": \"00008323520184013202\"\n      \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/process/api_publica_trf1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"process",
+						"api_publica_trf1"
+					]
+				},
+				"description": "você deve passar o tribunal que deseja consultar como parâmetro de rota.\n\n_e.g._ api_publica_trf1"
+			},
+			"response": []
+		},
+		{
+			"name": "obter processos da base",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/processes?classe=&assunto=&dataAjuizamento=28-10-2018&page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"processes"
+					],
+					"query": [
+						{
+							"key": "classe",
+							"value": ""
+						},
+						{
+							"key": "assunto",
+							"value": ""
+						},
+						{
+							"key": "dataAjuizamento",
+							"value": "28-10-2018"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				},
+				"description": "obter processos armazenados no banco de dados conforme parâmetros de consulta.\n\n_passar pelo pelo menos a data de ajuizamento como parâmentro para evitar erros internos do servidor._"
+			},
+			"response": []
+		}
+	]
+}

@@ -2,7 +2,7 @@
 
 <h3>Motivação </h3>
 
-Essa aplicação foi construída com base no padrão de arquitetura em camadas e no paradigma funcional. Mas pela natureza do desafio, se fez necessário adicionar apenas camadas que agregam valor e atendem os requisitos. A solução visa evitar excessos de complexidade e rigídez.
+Essa aplicação uso como base o padrão de arquitetura em camadas e o paradigma funcional. Mas pela natureza do desafio, se fez necessário adicionar apenas camadas que agregam valor e consequentemente atendem aos requisitos. A solução visa evitar excessos de complexidade e rigídez.
 
 #
 
@@ -12,7 +12,7 @@ _Este projeto usa o Volta como gerenciador de ferramentas de linha de comando Ja
 
 Guia de instalação do Volta: [docs-volta](https://docs.volta.sh/guide/getting-started)
 
-Installe a versão fixada no arquivo package.json
+Instale a versão fixada no arquivo package.json
 
 ```zsh
   volta install node@[version]
@@ -24,15 +24,17 @@ Verifique a instalação
   volta list
 ```
 
-Instale as dependências execuntando o comando a seguir na raíz do projeto
+_atenção: todos os comandos a seguir devem ser executados na raíz do projeto_
+
+#
+
+Instale as dependências
 
 ```zsh
   npm install
 ```
 
-_atenção: todos os comandos a seguir devem ser executados da raíz do projeto_
-
-Crie o arquivo .env conforme o arquivo .env.sample e execute o comando abaixo para prover os containers da aplicação
+Crie o arquivo _.env_ conforme o arquivo _.env.sample_ e execute o comando abaixo para prover o container do banco de dados
 
 ```zsh
   docker-compose up -d
