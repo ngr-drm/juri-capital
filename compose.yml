@@ -1,25 +1,14 @@
-version: '3.9'
+version: '3'
 
 services:
   db:
     image: postgres
     restart: always
     env_file: ./.env
+
     environment:
       POSTGRES_PASSWORD: $PG_PASSWORD
       POSTGRES_DB: $PG_DATABASE
-    ports:
-      - 5432:5432
-    volumes:
-      - db:/var/lib/postgres
 
-  api:
-    container_name: juri-api
-    depends_on:
-      - db
-    build: .
     ports:
-      - '3000:3000'
-
-volumes:
-  db:
+      - $PG_PORT:$PG_DOCKER_PORT
