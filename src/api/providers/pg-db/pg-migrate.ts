@@ -3,7 +3,7 @@ import { pgPool } from './pg-connector';
 import fs from 'fs';
 
 (async function migrate() {
-  const client = await (await pgPool()).connect();
+  const client = await pgPool().connect();
   try {
     const pathWithSqlFiles = path.join(__dirname, '/migrations');
     const fileNames = fs

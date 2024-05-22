@@ -3,7 +3,7 @@ import config from '../../../config-env';
 
 const { Pool } = pg;
 
-export async function pgPool() {
+export function pgPool() {
   return new Pool({
     user: config.DB_USER,
     password: config.DB_PASSWORD,

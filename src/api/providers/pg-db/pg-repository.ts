@@ -1,8 +1,12 @@
 import { ParamsToFilterProcesses, Process } from '../../domain/value-objects';
 import { pgPool } from './pg-connector';
 
+async function dbConn() {
+  return await pgPool().connect();
+}
+
 export async function register(data: Process) {
-  const client = await (await pgPool()).connect();
+  const client = await dbConn();
   const query = {
     text: `INSERT INTO processes("numeroProcesso", "classe", "sistema", "formato", "tribunal", 
     "dataUltimaAtualizacao", "grau", "dataAjuizamento", "movimentacoes", "assuntos") 
@@ -15,7 +19,7 @@ export async function register(data: Process) {
 }
 
 export async function findProcess(process: string) {
-  const client = await (await pgPool()).connect();
+  const client = await dbConn();
   const query = {
     text: `SELECT * FROM processes WHERE "numeroProcesso" = $1`,
     values: [process],
@@ -26,7 +30,7 @@ export async function findProcess(process: string) {
 }
 
 export async function filterProcesses(params: Partial<ParamsToFilterProcesses>) {
-  const client = await (await pgPool()).connect();
+  const client = await dbConn();
   const query = {
     text: `SELECT * FROM processes 
     WHERE ("classe" = $1::TEXT ) OR ("assuntos" = ARRAY[$2::TEXT])
