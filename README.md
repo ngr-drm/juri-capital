@@ -24,7 +24,7 @@ Verifique a instalação
   volta list
 ```
 
-_atenção: todos os comandos a seguir devem ser executados na raíz do projeto_
+_atenção: todos os comandos a seguir devem ser executados na raiz do projeto_
 
 #
 
@@ -56,7 +56,7 @@ Agora basta subir o servidor com o comando abaixo
 
 <h3>Testes unitários</h3>
 
-Execute o comando a seguir para rodar os testes unitários
+Execute o comando a seguir para rodar os testes
 
 ```zsh
   $ npm run test
