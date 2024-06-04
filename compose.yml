@@ -2,8 +2,9 @@ version: '3'
 
 services:
   db:
-    image: postgres
-    restart: always
+    image: postgres:16-alpine
+    container_name: db
+    restart: unless-stopped
     env_file: ./.env
 
     environment:
@@ -11,4 +12,36 @@ services:
       POSTGRES_DB: $PG_DATABASE
 
     ports:
-      - $PG_PORT:$PG_DOCKER_PORT
+      - $PG_PORT:$PG_PORT
+
+  app:
+    container_name: juri
+    build: ./
+    env_file: ./.env
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:$API_PORT/health']
+      interval: 1m30s
+      timeout: 10s
+
+    environment:
+      - PG_HOST=$PG_HOST_DOCKER
+      - PG_USER=$PG_USER
+      - PG_PASSWORD=$PG_PASSWORD
+      - PG_DATABASE=$PG_DATABASE
+      - PG_PORT=$PG_PORT
+      - API_PORT=$API_PORT
+
+    ports:
+      - 3000:3000
+
+    volumes:
+      - ./:/src/
+      - nodemodules:/src/node_modules
+
+    links:
+      - db
+    depends_on:
+      - db
+
+volumes:
+  nodemodules: {}

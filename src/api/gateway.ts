@@ -4,6 +4,10 @@ import { fetchByProcessNumber } from './domain/fetch-by-process-number.service';
 import { findProcesses } from './domain/fetch-all-process.service';
 
 async function routes(fastify: any) {
+  fastify.get('/health', async (request: FastifyRequest, reply: FastifyReply) => {
+    reply.code(200).send({ api: 'running...' });
+  });
+
   fastify.post('/process/:court', async (request: FastifyRequest, reply: FastifyReply) => {
     const params = request.params as Court;
     const body = request.body as BodyToRegisterProcess;

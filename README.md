@@ -6,41 +6,56 @@ Essa aplicação uso como base o padrão de arquitetura em camadas e o paradigma
 
 #
 
-<h3>Instruções para executar o projeto</h3>
+<h3>Instruções para executar o projeto </h3>
 
-_Este projeto usa o Volta como gerenciador de ferramentas de linha de comando JavaScript._
+#
 
-Guia de instalação do Volta: [docs-volta](https://docs.volta.sh/guide/getting-started)
+<h4>Executando o projeto (via Docker) </h4>
 
-Instale a versão fixada no arquivo package.json
+- dependências: docker e docker-compose
+
+- crie o arquivo **.env** conforme o arquivo **.env.sample** na raiz do projeto
+
+- execute o comando abaixo para subir a aplicação
+
+```zsh
+  docker-compose up -d --build
+```
+
+#
+
+<h4>Executando o projeto (no seu ambiente local)</h4>
+
+Este projeto sugere o uso do **volta** como gerenciador de ferramentas de linha de comando JavaScript.
+
+segue guia de instalação:
+[volta-docs](https://docs.volta.sh/guide/getting-started)
+
+Instale a versão fixada no arquivo **package.json**
 
 ```zsh
   volta install node@[version]
 ```
 
-Verifique a instalação
+verificando a instalação
 
 ```zsh
   volta list
 ```
 
-_atenção: todos os comandos a seguir devem ser executados na raiz do projeto_
+_atenção: todos os comandos a seguir devem ser executados na raiz do projeto._
 
 #
 
-Instale as dependências
+Instale as dependências da aplicação
 
 ```zsh
   npm install
 ```
 
-Crie o arquivo _.env_ conforme o arquivo _.env.sample_
+_nota: você vai precisar de uma instância do **PostgreSQL** rodando em sua máquina (é recomendável a versão 16)._
 
-Execute o comando abaixo para prover o container do banco de dados
-
-```zsh
-  docker-compose up -d
-```
+crie o arquivo **.env** conforme o arquivo **.env.sample** na raiz do projeto
 
 Execute as migrações do banco de dados
 
@@ -48,10 +63,10 @@ Execute as migrações do banco de dados
   npm run migrations
 ```
 
-Agora basta subir o servidor com o comando abaixo
+Em seguida basta executar o comando abaixo para subir a aplicação
 
 ```zsh
-  npm run dev
+  npm run dev:watch
 ```
 
 #

@@ -19,9 +19,9 @@ import fs from 'fs';
 
     await client.query('COMMIT');
     console.log('migration done!');
-  } catch (err) {
+  } catch (error) {
     await client.query('ROLLBACK');
-    console.error('migration failed: ', err);
+    console.error('migration failed: ', error);
   } finally {
     client.release(true);
   }

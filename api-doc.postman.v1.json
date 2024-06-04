@@ -84,6 +84,14 @@
 				"description": "obter processos armazenados no banco de dados conforme parâmetros de consulta.\n\n_passar pelo pelo menos a data de ajuizamento como parâmentro para evitar erros internos do servidor._"
 			},
 			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
