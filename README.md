@@ -79,8 +79,6 @@ Execute o comando a seguir para rodar os testes
   $ npm run test
 ```
 
-_A prioridade foi testar as funções puras, especificamente as que realizam operações sensíveis, como manipulação de datas._
-
 #
 
 <h3>Informações complementares</h3>
